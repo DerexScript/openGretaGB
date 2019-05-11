@@ -1,0 +1,5 @@
+#include "resource.h"
+TRAY_ICON ICON "img\\ico.ico"
+BACKGROUND_BMP BITMAP DISCARDABLE "img\\background.bmp"
+BTN_DONATE_BMP BITMAP DISCARDABLE "img\\btn_donate.bmp"
+//CREATEPROCESS_MANIFEST_RESOURCE_ID RT_MANIFEST "openGretaGB.exe.manifest"
