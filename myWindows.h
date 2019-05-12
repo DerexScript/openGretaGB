@@ -29,7 +29,7 @@ HWND CreateToolTip(HWND hwndTool, string text, HINSTANCE hinstance){
 	return hwndTip;
 }
 
-HWND hwnd, textLogin1,labelhwndl1,labelLogin1,textPw1,labelhwndl2,labelLogin2,textLogin2,textPw2,labelUserID,labelUserPw,buttonUser1,buttonUser2,buttonStartFree,buttonDonation;
+HWND hwnd, textLogin1,labelhwndl1,labelLogin1,textPw1,labelhwndl2,labelLogin2,textLogin2,textPw2,labelUserID,labelUserPw,buttonUser1,buttonUser2,buttonStartFreeL1, buttonStartFreeL2, buttonPesoL2, buttonPesoL1, buttonDonation;
 void myWindows(HINSTANCE hThisInstance, HWND hwnd){
     char login1Imp[50];
     char login2Imp[50];
@@ -107,6 +107,42 @@ void myWindows(HINSTANCE hThisInstance, HWND hwnd){
     if(strlen(pw1Imp) > 0){
         EnableWindow(textPw1, FALSE);
     }
+
+     buttonUser1 = CreateWindowExA (
+           WS_EX_COMPOSITED|WS_EX_NOACTIVATE|WS_EX_NOPARENTNOTIFY,
+           "Button",
+           "Login 1",
+           WS_CHILD|WS_VISIBLE,
+           110, 120, 100, 20,
+           hwnd,
+           (HMENU)BTN_Login1,
+           hThisInstance,
+           NULL
+    );
+
+    buttonStartFreeL1 = CreateWindowExA (
+           WS_EX_COMPOSITED|WS_EX_NOACTIVATE|WS_EX_NOPARENTNOTIFY,
+           "Button",
+           "Comandos Free",
+           WS_CHILD|WS_VISIBLE,
+           107.5, 150, 105, 20,
+           hwnd,
+           (HMENU)BTN_AutoFreeL1,
+           hThisInstance,
+           NULL
+    );
+
+    buttonPesoL1 = CreateWindowExA (
+           WS_EX_COMPOSITED|WS_EX_NOACTIVATE|WS_EX_NOPARENTNOTIFY,
+           "Button",
+           "Ligar Peso",
+           WS_CHILD|WS_VISIBLE,
+           107.5, 180, 105, 20,
+           hwnd,
+           (HMENU)BTN_PesoL1,
+           hThisInstance,
+           NULL
+    );
 
     labelhwndl2 = CreateWindowExA (
            WS_EX_COMPOSITED|WS_EX_NOACTIVATE|WS_EX_NOPARENTNOTIFY,
@@ -191,17 +227,8 @@ void myWindows(HINSTANCE hThisInstance, HWND hwnd){
            hThisInstance,
            NULL
     );
-    buttonUser1 = CreateWindowExA (
-           WS_EX_COMPOSITED|WS_EX_NOACTIVATE|WS_EX_NOPARENTNOTIFY,
-           "Button",
-           "Login 1",
-           WS_CHILD|WS_VISIBLE,
-           110, 120, 100, 20,
-           hwnd,
-           (HMENU)BTN_Login1,
-           hThisInstance,
-           NULL
-    );
+
+
     buttonUser2 = CreateWindowExA (
            WS_EX_COMPOSITED|WS_EX_NOACTIVATE|WS_EX_NOPARENTNOTIFY,
            "Button",
@@ -213,24 +240,39 @@ void myWindows(HINSTANCE hThisInstance, HWND hwnd){
            hThisInstance,
            NULL
     );
-    buttonStartFree = CreateWindowExA (
+
+    buttonStartFreeL2 = CreateWindowExA (
            WS_EX_COMPOSITED|WS_EX_NOACTIVATE|WS_EX_NOPARENTNOTIFY,
            "Button",
-           "Start AutoFree",
+           "Comandos Free",
            WS_CHILD|WS_VISIBLE,
-           215, 175, 100, 20,
+           317.5, 150, 105, 20,
            hwnd,
-           (HMENU)BTN_AutoFree,
+           (HMENU)BTN_AutoFreeL2,
            hThisInstance,
            NULL
     );
+
+
+    buttonPesoL2 = CreateWindowExA (
+           WS_EX_COMPOSITED|WS_EX_NOACTIVATE|WS_EX_NOPARENTNOTIFY,
+           "Button",
+           "Ligar Peso",
+           WS_CHILD|WS_VISIBLE,
+           317.5, 180, 105, 20,
+           hwnd,
+           (HMENU)BTN_PesoL2,
+           hThisInstance,
+           NULL
+    );
+
 
    buttonDonation = CreateWindowExA (
            WS_EX_COMPOSITED|WS_EX_NOACTIVATE|WS_EX_NOPARENTNOTIFY,
            "Button",
            "",
            WS_CHILD|WS_VISIBLE|BS_DEFPUSHBUTTON|BS_BITMAP,
-           383, 166, 147, 47,
+           383, 216, 147, 47,
            hwnd,
            (HMENU)BTN_DONATION,
            hThisInstance,

@@ -10,25 +10,25 @@
 1555441770 source:c:\users\Áquila\documents\codeblocks projects\opengretagb\resources.rc
 	"resource.h"
 
-1557550142 source:d:\users\derex\documents\codeblocks\opengretagb\main.cpp
+1557604829 source:d:\users\derex\documents\codeblocks\opengretagb\main.cpp
 	<windows.h>
 	<commctrl.h>
 	"resource.h"
 	<string>
 	<iostream>
+	<sstream>
 	"init.h"
 	"myWindows.h"
 	"myWinMain.h"
 
-1557424829 d:\users\derex\documents\codeblocks\opengretagb\resource.h
+1557600562 d:\users\derex\documents\codeblocks\opengretagb\resource.h
 
 1557450225 source:d:\users\derex\documents\codeblocks\opengretagb\resources.rc
 	"resource.h"
 
-1557520688 d:\users\derex\documents\codeblocks\opengretagb\init.h
+1557602499 d:\users\derex\documents\codeblocks\opengretagb\init.h
 
-1557551269 d:\users\derex\documents\codeblocks\opengretagb\mywinmain.h
-	<sstream>
+1557621148 d:\users\derex\documents\codeblocks\opengretagb\mywinmain.h
 
-1557547260 d:\users\derex\documents\codeblocks\opengretagb\mywindows.h
+1557600580 d:\users\derex\documents\codeblocks\opengretagb\mywindows.h
 

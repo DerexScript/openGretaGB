@@ -7,9 +7,20 @@ NOTIFYICONDATA nid = {};
 char dirIniFile[MAX_PATH];
 char dirExePath[MAX_PATH];
 char dirGBPath[MAX_PATH];
+
 bool isCryptPw1 = FALSE;
 bool isCryptPw2 = FALSE;
-bool isThreads = FALSE;
+bool isLoginThreads = FALSE;
+bool isCommandsThreads = FALSE;
+bool isPesoThreads = FALSE;
+bool isPesoOnOffL1 = FALSE;
+bool isPesoOnOffL2 = FALSE;
+HANDLE  pesoThreadL1;
+HANDLE  pesoThreadL2;
+
+HWND handleGB1 = NULL, handleGB2 = NULL;
+DWORD dwProcessIDGB1 = 0, dwProcessIDGB2 = 0;
+
 
 HKEY OpenRegistryKey(HKEY hRootKey, char strSubKey[]){
 	HKEY hKey;

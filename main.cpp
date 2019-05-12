@@ -3,11 +3,13 @@
 #elif defined(_UNICODE) && !defined(UNICODE)
 #define UNICODE
 #endif
+
 #include <windows.h>
 #include <commctrl.h>
 #include "resource.h"
 #include <string>
 #include <iostream>
+#include <sstream>
 #include "init.h"
 #include "myWindows.h"
 #include "myWinMain.h"

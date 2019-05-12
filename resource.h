@@ -9,7 +9,7 @@
 #define APP_EXIT 8
 #define BTN_Login1 9
 #define BTN_Login2 10
-#define BTN_AutoFree 11
+#define BTN_AutoFreeL1 11
 #define BACKGROUND_BMP 12
 #define STATIC_L1 13
 #define STATIC_L2 14
@@ -17,4 +17,7 @@
 #define STATIC_PW 16
 #define BTN_DONATION 17
 #define BTN_DONATE_BMP 18
+#define BTN_AutoFreeL2 19
+#define BTN_PesoL2 20
+#define BTN_PesoL1 21
 

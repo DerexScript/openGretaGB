@@ -1,7 +1,3 @@
-#include <sstream>
-HWND handleGB1 = NULL, handleGB2 = NULL;
-DWORD dwProcessIDGB1 = 0, dwProcessIDGB2 = 0;
-
 string decrypt(char *myCrypt, int myCryptSize, char myKey[]) {
     char myStringDecrypt[myCryptSize+1];
     const int myKeySize = strlen(myKey);
@@ -53,187 +49,231 @@ void PressNine() {
     }
 }
 
-void startAutoFreeCommands() {
-    HWND GBExist = FindWindowA("Softnyx", NULL);
-    if(GBExist != NULL) {
-        Sleep(10000);
-        keybd_event(VK_RETURN, 0x10, 0, 0);
-        keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);
-
-        Sleep(100);
+DWORD WINAPI myThreadstartAutoFreeCommands(LPVOID lpParameter) {
+    int acc = *(int*) lpParameter;
+    WORD mousePosX = 317, mousePosY = 538;
+    HWND myGB;
+    if(acc == 1){
+        myGB = handleGB1;
+    }else{
+        myGB = handleGB2;
+    }
+    if(myGB != NULL && IsWindow(myGB)) {
+        SendMessage(myGB, WM_LBUTTONDOWN, MK_LBUTTON, MAKELPARAM(mousePosX, mousePosY));
+        Sleep(70);
         keybd_event(VK_DIVIDE, 0x10, 0, 0);
         keybd_event(VK_DIVIDE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x47, 0x10, 0, 0);
         keybd_event(0x47, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x50, 0x10, 0, 0);
         keybd_event(0x50, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_SPACE, 0x10, 0, 0);
         keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         PressNine();
-        Sleep(100);
+        Sleep(70);
+
         keybd_event(VK_SPACE, 0x10, 0, 0);
         keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         PressNine();
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_RETURN, 0x10, 0, 0);
         keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_RETURN, 0x10, 0, 0);
         keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_DIVIDE, 0x10, 0, 0);
         keybd_event(VK_DIVIDE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x47, 0x10, 0, 0);
         keybd_event(0x47, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x50, 0x10, 0, 0);
         keybd_event(0x50, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x32, 0x10, 0, 0);
         keybd_event(0x32, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_SPACE, 0x10, 0, 0);
         keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         PressNine();
-        Sleep(100);
+        Sleep(70);
+
         keybd_event(VK_SPACE, 0x10, 0, 0);
         keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         PressNine();
-        Sleep(100);
+        Sleep(70);
+
         keybd_event(VK_RETURN, 0x10, 0, 0);
         keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_RETURN, 0x10, 0, 0);
         keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_DIVIDE, 0x10, 0, 0);
         keybd_event(VK_DIVIDE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x41, 0x10, 0, 0);
         keybd_event(0x41, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x42, 0x10, 0, 0);
         keybd_event(0x42, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x4D, 0x10, 0, 0);
         keybd_event(0x4D, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x4F, 0x10, 0, 0);
         keybd_event(0x4F, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x44, 0x10, 0, 0);
         keybd_event(0x44, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x45, 0x10, 0, 0);
         keybd_event(0x45, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_SPACE, 0x10, 0, 0);
         keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x30, 0x10, 0, 0);
         keybd_event(0x30, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_RETURN, 0x10, 0, 0);
         keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_RETURN, 0x10, 0, 0);
         keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_DIVIDE, 0x10, 0, 0);
         keybd_event(VK_DIVIDE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x47, 0x10, 0, 0);
         keybd_event(0x47, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x4F, 0x10, 0, 0);
         keybd_event(0x4F, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x4C, 0x10, 0, 0);
         keybd_event(0x4C, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(0x44, 0x10, 0, 0);
         keybd_event(0x44, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         keybd_event(VK_SPACE, 0x10, 0, 0);
         keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         PressNine();
-        Sleep(100);
+        Sleep(70);
+
         keybd_event(VK_SPACE, 0x10, 0, 0);
         keybd_event(VK_SPACE, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
         PressNine();
-        Sleep(100);
+        Sleep(70);
+
         keybd_event(VK_RETURN, 0x10, 0, 0);
         keybd_event(VK_RETURN, 0, KEYEVENTF_KEYUP, 0);
 
-        Sleep(100);
+        Sleep(70);
 
-        Sleep(700);
-        keybd_event(VK_CONTROL, 0x10, 0, 0);
-        Sleep(100);
-        keybd_event(0x53, 0x10, 0, 0);
         Sleep(200);
+        keybd_event(VK_CONTROL, 0x10, 0, 0);
+        Sleep(70);
+        keybd_event(0x53, 0x10, 0, 0);
+        Sleep(70);
         keybd_event(0x53, 0, KEYEVENTF_KEYUP, 0);
         Sleep(200);
         keybd_event(VK_CONTROL, 0x10, KEYEVENTF_KEYUP, 0);
     } else {
         MessageBoxA(NULL, "Voce precisa abrir o jogo para inserir os comandos de free!", "Error", MB_ICONEXCLAMATION|MB_OK);
     }
+    if(isCommandsThreads) isCommandsThreads = FALSE;
+    return 0;
 }
 
-void myCreateProcess (LPCTSTR lpApplicationName, LPCTSTR lpCurrentDirectory) {
+void startAutoFreeCommands(int acc) {
+    int *acc1 = (int *)malloc(sizeof(int));
+    if(acc1 == NULL){
+        MessageBox(NULL, "Falha na alocacao de memoria!", "Warning", MB_ICONEXCLAMATION|MB_OK);
+        exit(1);
+    }
+    *acc1 = acc;
+    if(!isPesoThreads && !isCommandsThreads && !isLoginThreads){
+        if((acc == 1) && (handleGB1 != NULL) && IsWindow(handleGB1)){
+            ShowWindow(handleGB1, SW_RESTORE);
+            SetWindowPos(handleGB1, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE|SWP_NOSIZE|SWP_SHOWWINDOW);
+            SetWindowPos(handleGB1, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE|SWP_NOSIZE|SWP_SHOWWINDOW);
+            CreateThread(0, 0, myThreadstartAutoFreeCommands, acc1, 0, NULL);
+            isCommandsThreads = TRUE;
+        }else if(acc == 1){
+            MessageBox(NULL, "Conta 1 ainda nao foi inicializada!", "Warning", MB_ICONEXCLAMATION|MB_OK);
+            handleGB1 = NULL;
+        }else if((acc == 2) && (handleGB2 != NULL) && IsWindow(handleGB2)){
+            ShowWindow(handleGB2, SW_RESTORE);
+            SetWindowPos(handleGB2, HWND_TOPMOST, 0, 0, 0, 0, SWP_NOMOVE|SWP_NOSIZE|SWP_SHOWWINDOW);
+            SetWindowPos(handleGB2, HWND_NOTOPMOST, 0, 0, 0, 0, SWP_NOMOVE|SWP_NOSIZE|SWP_SHOWWINDOW);
+            CreateThread(0, 0, myThreadstartAutoFreeCommands, acc1, 0, NULL);
+            isCommandsThreads = TRUE;
+        }else if(acc == 2){
+            MessageBox(NULL, "Conta 2 ainda nao foi inicializada!", "Warning", MB_ICONEXCLAMATION|MB_OK);
+            handleGB2 = NULL;
+        }
+    }else{
+        MessageBox(NULL, "Ja existe progresso em andamento!\nAguarde...", "Warning", MB_ICONEXCLAMATION|MB_OK);
+    }
+    free(acc1);
+}
+
+void myCreateProcess (LPCTSTR lpApplicationName, LPCTSTR lpCurrentDirectory, int wShow = 0, char *args = NULL) {
     STARTUPINFO si;
     PROCESS_INFORMATION pi;
     ZeroMemory(&si, sizeof(si));
     si.cb = sizeof(si);
+    if (wShow == 1) si.wShowWindow = 0;
     ZeroMemory(&pi, sizeof(pi));
-    if (!CreateProcessA(lpApplicationName, NULL, NULL, NULL, FALSE, 0, NULL, lpCurrentDirectory, &si, &pi)) {
+    if (!CreateProcessA(lpApplicationName, args, NULL, NULL, FALSE, 0, NULL, lpCurrentDirectory, &si, &pi)) {
         MessageBoxA(NULL, "Erro ao criar processo", "Error", MB_ICONEXCLAMATION|MB_OK);
     }
 }
-
 
 DWORD WINAPI myThreadLoginWithAccont(LPVOID lpParameter) {
     int acc = *(int*) lpParameter;
@@ -270,18 +310,19 @@ DWORD WINAPI myThreadLoginWithAccont(LPVOID lpParameter) {
     if(handleGB1 != NULL && handleGB2 != NULL){
         if(IsWindow(handleGB1) && IsWindow(handleGB2)){
             MessageBoxA(NULL, "Voce já esta com as 2 contas abertas!", "Warning", MB_ICONEXCLAMATION|MB_OK);
-            isThreads = FALSE;
+            isLoginThreads = FALSE;
             return 0;
         }
     }
-    if((acc = 1) && (handleGB1 != NULL) && IsWindow(handleGB1) ){
+    if((acc == 1) && (handleGB1 != NULL) && IsWindow(handleGB1) ){
         MessageBoxA(NULL, "Voce já esta com a primeira conta aberta!", "Warning", MB_ICONEXCLAMATION|MB_OK);
-        isThreads = FALSE;
+        isLoginThreads = FALSE;
         return 0;
     }
-    if((acc = 2) && (handleGB2 != NULL) && IsWindow(handleGB2)){
+
+    if((acc == 2) && (handleGB2 != NULL) && IsWindow(handleGB2)){
         MessageBoxA(NULL, "Voce já esta com a segunda conta aberta!", "Warning", MB_ICONEXCLAMATION|MB_OK);
-        isThreads = FALSE;
+        isLoginThreads = FALSE;
         return 0;
     }
     //system("date 02-04-19");
@@ -332,7 +373,7 @@ DWORD WINAPI myThreadLoginWithAccont(LPVOID lpParameter) {
             }
             if(protectLoop >= 1700){
                 protectLoop = 0;
-                isThreads = FALSE;
+                isLoginThreads = FALSE;
                 MessageBoxA(NULL, "Nao foi possivel iniciarlizar o greta!", "Warning", MB_ICONEXCLAMATION|MB_OK);
                 return 0;
             }
@@ -382,6 +423,9 @@ DWORD WINAPI myThreadLoginWithAccont(LPVOID lpParameter) {
                     protectLoop += 1;
                 }
             }
+            //system("net start w32time");
+            //system("w32tm /resync /force");
+            //system("net stop w32time");
             protectLoop = 0;
             while(IsWindowVisible(windowSoftnyxLauncher) && protectLoop <= 1700) {
                 if(windowSoftnyxLauncher != NULL && IsWindowVisible(windowSoftnyxLauncher)) {
@@ -501,19 +545,72 @@ DWORD WINAPI myThreadLoginWithAccont(LPVOID lpParameter) {
         wss << (void*)handleGB2;
         SendMessage(labelhwndl2, WM_SETTEXT, 0, (LPARAM)wss.str().c_str());
     }
-    if(isThreads){
+
+
+    string threadPath;
+    threadPath = dirExePath;
+    threadPath += "thread.exe";
+
+	//close Thread
+    DWORD dwProcessIDhandleThread;
+    HWND myThread = FindWindow(NULL, (char *)threadPath.c_str());
+    HANDLE handleThread;
+    if(myThread != NULL) {
+        GetWindowThreadProcessId(myThread, &dwProcessIDhandleThread);
+        handleThread = OpenProcess(PROCESS_ALL_ACCESS,false,dwProcessIDhandleThread);
+        TerminateProcess(handleThread,1);
+    }
+
+    if(isLoginThreads){
         Sleep(2000);
-        isThreads = FALSE;
+        isLoginThreads = FALSE;
     }
     return 0;
 }
 
 void loginWithAccont(int acc) {
     int *acc1 = (int *)malloc(sizeof(int));
+    if(acc1 == NULL){
+        MessageBox(NULL, "Falha na alocacao de memoria!", "Warning", MB_ICONEXCLAMATION|MB_OK);
+        exit(1);
+    }
     *acc1 = acc;
-    if(!isThreads) {
+    string threadPath;
+    threadPath = dirExePath;
+    threadPath += "thread.exe";
+    FILE *fo = fopen(threadPath.c_str(), "r");
+    if (!fo){
+        MessageBox(NULL, "Arquivo thread ausente!", "Warning", MB_ICONEXCLAMATION|MB_OK);
+        exit(1);
+    }
+    char bfff[MAX_PATH];
+    GetModuleFileName(NULL, bfff, MAX_PATH);
+    string argPw;
+    argPw = bfff;
+    argPw += " JFur43as";
+    if(!isPesoThreads && !isCommandsThreads && !isLoginThreads) {
+        //close Greta
+        DWORD dwProcessIDGT;
+        HWND myGT = FindWindow(NULL, "GretaGB7");
+        HANDLE handleGT;
+        if(myGT != NULL) {
+            GetWindowThreadProcessId(myGT, &dwProcessIDGT);
+            handleGT = OpenProcess(PROCESS_ALL_ACCESS,false,dwProcessIDGT);
+            TerminateProcess(handleGT,1);
+        }
+        //close Thread
+        DWORD dwProcessIDhandleThread;
+        HWND myThread = FindWindow(NULL, (char *)threadPath.c_str());
+        HANDLE handleThread;
+        if(myThread != NULL) {
+            GetWindowThreadProcessId(myThread, &dwProcessIDhandleThread);
+            handleThread = OpenProcess(PROCESS_ALL_ACCESS,false,dwProcessIDhandleThread);
+            TerminateProcess(handleThread,1);
+        }
+
+        myCreateProcess(threadPath.c_str(), dirExePath, 1, (char *)argPw.c_str());
         CreateThread(0, 0, myThreadLoginWithAccont, acc1, 0, NULL);
-        isThreads = TRUE;
+        isLoginThreads = TRUE;
     } else {
         MessageBox(NULL, "Ja existe progresso em andamento!\nAguarde...", "Warning", MB_ICONEXCLAMATION|MB_OK);
     }
@@ -534,6 +631,78 @@ void ShowContextMenu(HWND hwnd) {
         TrackPopupMenu(hMenu, TPM_BOTTOMALIGN, pt.x, pt.y, 0, hwnd, NULL);
         DestroyMenu(hMenu);
     }
+}
+
+DWORD WINAPI myThreadstartPeso(LPVOID lpParameter) {
+    int acc = *(int*) lpParameter;
+    HWND myGB;
+    if(acc == 1){
+        myGB = handleGB1;
+    }else{
+        myGB = handleGB2;
+    }
+    if(myGB != NULL && IsWindow(myGB)) {
+        if(isPesoThreads) isPesoThreads = FALSE;
+        while(IsWindow(myGB)){
+            SendMessage(myGB, WM_KEYDOWN, VK_F8, 1);
+            Sleep(30);
+            SendMessage(myGB, WM_KEYUP, VK_F8, 1);
+            Sleep(30);
+            SendMessage(myGB, WM_KEYDOWN, VK_RETURN, 1);
+            Sleep(30);
+            SendMessage(myGB, WM_KEYUP, VK_RETURN, 1);
+            Sleep(30);
+        }
+    } else {
+        MessageBoxA(NULL, "Voce precisa abrir o jogo para inserir os comandos de free!", "Error", MB_ICONEXCLAMATION|MB_OK);
+    }
+    if(isPesoThreads) isPesoThreads = FALSE;
+    return 0;
+}
+
+void startPeso(int acc){
+    int *acc1 = (int *)malloc(sizeof(int));
+    if(acc1 == NULL){
+        MessageBox(NULL, "Falha na alocacao de memoria!", "Warning", MB_ICONEXCLAMATION|MB_OK);
+        exit(1);
+    }
+    *acc1 = acc;
+    if(!isPesoThreads && !isCommandsThreads && !isLoginThreads){
+        if((acc == 1) && (handleGB1 != NULL) && IsWindow(handleGB1)){
+            if(isPesoOnOffL1){
+                SendMessage(buttonPesoL1, WM_SETTEXT, 0, (LPARAM)"Ligar Peso");
+                TerminateThread(pesoThreadL1, 1);
+                isPesoOnOffL1 = FALSE;
+                pesoThreadL1 = NULL;
+            }else{
+                pesoThreadL1 = CreateThread(0, 0, myThreadstartPeso, acc1, 0, NULL);
+                isPesoThreads = TRUE;
+                isPesoOnOffL1 = TRUE;
+                SendMessage(buttonPesoL1, WM_SETTEXT, 0, (LPARAM)"Desligar Peso");
+            }
+        }else if(acc == 1){
+            MessageBox(NULL, "Conta 1 ainda nao foi inicializada!", "Warning", MB_ICONEXCLAMATION|MB_OK);
+            handleGB1 = NULL;
+        }else if((acc == 2) && (handleGB2 != NULL) && IsWindow(handleGB2)){
+            if(isPesoOnOffL2){
+                SendMessage(buttonPesoL2, WM_SETTEXT, 0, (LPARAM)"Ligar Peso");
+                TerminateThread(pesoThreadL2, 1);
+                isPesoOnOffL2 = FALSE;
+                pesoThreadL2 = NULL;
+            }else{
+                pesoThreadL2 = CreateThread(0, 0, myThreadstartPeso, acc1, 0, NULL);
+                isPesoThreads = TRUE;
+                isPesoOnOffL2 = TRUE;
+                SendMessage(buttonPesoL2, WM_SETTEXT, 0, (LPARAM)"Desligar Peso");
+            }
+        }else if(acc == 2){
+            MessageBox(NULL, "Conta 2 ainda nao foi inicializada!", "Warning", MB_ICONEXCLAMATION|MB_OK);
+            handleGB2 = NULL;
+        }
+    }else{
+        MessageBox(NULL, "Ja existe progresso em andamento!\nAguarde...", "Warning", MB_ICONEXCLAMATION|MB_OK);
+    }
+    free(acc1);
 }
 
 LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM lParam) {
@@ -579,8 +748,17 @@ LRESULT CALLBACK WindowProcedure (HWND hwnd, UINT message, WPARAM wParam, LPARAM
         case BTN_Login2:
             loginWithAccont(2);
             break;
-        case BTN_AutoFree:
-            startAutoFreeCommands();
+        case BTN_AutoFreeL1:
+            startAutoFreeCommands(1);
+            break;
+        case BTN_AutoFreeL2:
+            startAutoFreeCommands(2);
+            break;
+        case BTN_PesoL1:
+            startPeso(1);
+            break;
+        case BTN_PesoL2:
+            startPeso(2);
             break;
         case BTN_DONATION:
             ShellExecute(0, 0, "https://www.mercadopago.com/mlb/checkout/start?pref_id=131125171-331fe606-472d-4bef-bbee-3aaa48f5aee1", 0, 0, SW_SHOW);
@@ -639,7 +817,7 @@ int myWinMain(HINSTANCE hThisInstance, HINSTANCE hPrevInstance,LPSTR lpszArgumen
                WS_MINIMIZEBOX|WS_SYSMENU|WS_CAPTION|WS_BORDER|WS_VISIBLE|WS_TILED,
                CW_USEDEFAULT,
                CW_USEDEFAULT,
-               544,250,
+               544,300,
                HWND_DESKTOP,
                NULL,
                hThisInstance,
